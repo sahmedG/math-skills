@@ -21,7 +21,6 @@ func main() {
 			fmt.Println(err.Error())
 			return
 		}
-
 		//creating a scanner for each new line in the file case the file has multiple lines
 		fileScanner := bufio.NewScanner(readFile)
 		//splitting the data from the input file
@@ -33,6 +32,8 @@ func main() {
 			number,_ := strconv.Atoi(fileScanner.Text())
 			numbers = append(numbers, float64(number))
 		}
+		// closing the file after all the lines where scanned
+		readFile.Close()
 		//sorting the array
 		sort.Float64s(numbers)
 		//calculating median value
@@ -44,10 +45,8 @@ func main() {
 		//printing the output to the terminal using the required format
 		fmt.Println("Average: ",math.Round(Average(numbers)))
 		fmt.Println("Median: ",math.Round(median))
-		fmt.Println("Variance:",int(math.Round(varience)))
+		fmt.Println("Variance:",int64(math.Round(varience)))
 		fmt.Println("Standard Deviation:",math.Round(std_dev))
-		readFile.Close() // closing the file after all the lines where scanned
-
 	} else {
 		fmt.Println("Wrong nummbr of arguments")
 	}
