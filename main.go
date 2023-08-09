@@ -43,8 +43,8 @@ func main() {
 		//calculating standard deviation
 		std_dev,_ := stats.StandardDeviation(numbers)
 		//printing the output to the terminal using the required format
-		fmt.Println("Average: ",math.Round(Average(numbers)))
-		fmt.Println("Median: ",math.Round(median))
+		fmt.Println("Average:",math.Round(Average(numbers)))
+		fmt.Println("Median:",math.Round(median))
 		fmt.Println("Variance:",int64(math.Round(varience)))
 		fmt.Println("Standard Deviation:",math.Round(std_dev))
 	} else {
